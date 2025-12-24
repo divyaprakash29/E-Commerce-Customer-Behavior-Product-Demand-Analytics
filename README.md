@@ -1,78 +1,132 @@
 # E-Commerce Customer Behavior & Product Demand Analytics
 
-## Overview
-This project provides comprehensive analytics and insights into e-commerce customer behavior and product demand patterns. It leverages data analysis and visualization techniques to help businesses understand customer preferences, predict demand, and optimize inventory management.
+Comprehensive data analytics project analyzing customer purchasing patterns, behavior segmentation, and product demand forecasting using RFM metrics and machine learning clustering.
 
-## Purpose
-The primary goal is to:
-- Analyze customer purchasing patterns and behavior trends
-- Forecast product demand with machine learning models
-- Identify high-performing and underperforming products
-- Provide actionable insights for business decision-making
-- Support data-driven marketing and inventory strategies
+## 🎯 Project Overview
 
-## Key Features
-- **Customer Behavior Analysis**: Explore purchasing patterns, customer segmentation, and lifecycle trends
-- **Demand Forecasting**: Predictive models to forecast future product demand
-- **Data Visualization**: Interactive dashboards and visualizations for easy interpretation
-- **Product Performance Metrics**: Identify top-selling products and market trends
-- **Statistical Analysis**: Comprehensive statistical insights and correlations
-- **Exportable Reports**: Generate detailed reports for stakeholder presentations
+This project leverages a dataset of 32.4M+ transactions to: 
+- **Segment customers** using RFM (Recency, Frequency, Monetary) analysis
+- **Identify patterns** in customer behavior and purchasing habits
+- **Predict demand** for inventory optimization
+- **Generate insights** for targeted marketing campaigns
 
-## Quick Start
+## 📊 Key Features
+
+- **RFM Segmentation**:  Classify customers into 4 distinct segments
+- **Machine Learning**: K-Means clustering for customer grouping
+- **Data Visualization**: Comprehensive charts and visualizations
+- **Predictive Models**: Logistic Regression, Decision Trees, Random Forests
+- **Business Intelligence**: Actionable insights and recommendations
+
+## 📁 Dataset Overview
+
+| Metric | Value |
+|--------|-------|
+| **Total Records** | 32.4M transactions |
+| **Unique Customers** | 206,209 |
+| **Unique Products** | 49,688 |
+| **Departments** | 21 |
+| **Aisles** | 134 |
+
+## 📈 Customer Segments
+
+| Cluster | Size | Type |
+|---------|------|------|
+| 0 | 45,390 | High-Value Customers |
+| 1 | 111,570 | Regular Customers |
+| 2 | 29,740 | At-Risk Customers |
+| 3 | 19,509 | Inactive Customers |
+
+## 🛠️ Technologies
+
+- **Python 3.7+**
+- **pandas, numpy** - Data manipulation
+- **scikit-learn** - Machine learning
+- **matplotlib, seaborn** - Visualization
+- **Jupyter Notebook** - Interactive analysis
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.7+
-- pandas, numpy, scikit-learn
-- matplotlib, seaborn, plotly (for visualizations)
-
-### Installation
 ```bash
+pip install pandas numpy matplotlib seaborn scikit-learn jupyter
+```
+
+### Run Analysis
+```bash
+# Clone repository
 git clone https://github.com/divyaprakash29/E-Commerce-Customer-Behavior-Product-Demand-Analytics.git
 cd E-Commerce-Customer-Behavior-Product-Demand-Analytics
-pip install -r requirements.txt
+
+# Launch notebook
+jupyter notebook Team13.ipynb
 ```
 
-### Running the Analysis
-```bash
-# Execute the main analysis script
-python main.py
+### Data Files Required
+- `orders.csv` - Order details
+- `order_products__prior.csv` - Product history
+- `order_products__train.csv` - Training data
+- `products.csv` - Product catalog
+- `aisles.csv` - Store aisles
+- `departments.csv` - Store departments
 
-# Or run Jupyter notebooks for interactive analysis
-jupyter notebook
+## 📂 Project Files
+
+| File | Description |
+|------|-------------|
+| **Team13.ipynb** | Main analysis notebook with code & visualizations |
+| **Team13.pptx** | Presentation with key findings |
+| **Team13_Report.docx** | Detailed technical report |
+| **README.md** | This file |
+
+## 🔍 Analysis Includes
+
+1. **Data Integration** - Merge multiple data sources
+2. **Feature Engineering** - RFM metric calculations
+3. **Clustering** - K-Means with optimal clusters
+4. **Classification** - Multiple ML models
+5. **Evaluation** - Accuracy, Precision, Recall, F1-Score
+6. **Visualization** - Trends and patterns
+7. **Insights** - Business recommendations
+
+## 💡 Key Insights
+
+- **54%** of customers are regular, consistent buyers
+- **22%** are high-value customers requiring retention focus
+- **14%** are at-risk and need re-engagement strategies
+- **9%** are inactive with reactivation potential
+
+## 📊 RFM Metrics
+
+- **Recency**:  Days since last purchase
+- **Frequency**: Total number of orders
+- **Monetary**: Average basket size
+
+## 📝 Usage Examples
+
+```python
+# Load and explore data
+import pandas as pd
+orders = pd.read_csv("orders.csv")
+
+# Calculate RFM metrics
+frequency = orders. groupby("user_id")["order_number"].max()
+recency = orders.groupby("user_id")["days_since_prior_order"].max()
+
+# Perform clustering
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=4, random_state=42)
+clusters = kmeans.fit_predict(rfm_scaled)
 ```
 
-## Dataset
-The project uses e-commerce transaction data including:
-- Customer information (demographics, segments)
-- Product details (categories, pricing)
-- Transaction records (dates, quantities, amounts)
-- Temporal data for trend analysis
+## 📧 Contact
 
-## Project Structure
-```
-├── data/                          # Raw and processed data files
-├── notebooks/                     # Jupyter notebooks for analysis
-├── scripts/                       # Python scripts for data processing
-├── visualizations/                # Generated charts and dashboards
-├── models/                        # Machine learning models
-└── README.md                      # This file
-```
+**Author**: [divyaprakash29](https://github.com/divyaprakash29)
 
-## Technologies Used
-- **Data Processing**: Pandas, NumPy
-- **Machine Learning**: Scikit-learn, XGBoost
-- **Visualization**: Matplotlib, Seaborn, Plotly
-- **Analysis**: Jupyter Notebook, Python
+## 📄 License
 
-## Contributing
-Contributions are welcome! Please feel free to submit pull requests or open issues for suggestions and improvements.
-
-## License
-This project is open source and available under the MIT License.
-
-## Contact
-For questions or inquiries, please reach out through GitHub.
+This project is available for educational and analytical purposes. 
 
 ---
-**Last Updated**: December 24, 2025
+
+**Status**:  Active | **Last Updated**: December 24, 2025
